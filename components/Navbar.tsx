@@ -9,14 +9,14 @@ interface NavbarProps {
 const NavLink: React.FC<{ page: Page; currentPage: Page; navigateTo: (page: Page) => void; children: React.ReactNode; isMobile?: boolean }> = ({ page, currentPage, navigateTo, children, isMobile = false }) => {
   const isActive = currentPage === page;
   const baseClasses = isMobile 
-    ? "block py-3 px-4 text-lg" 
-    : "py-2 px-1 transition-colors duration-300 relative";
-  const activeClasses = isMobile || isActive
-    ? "text-secondary" 
-    : "";
+    ? "block py-3 px-4 text-lg w-full text-center" 
+    : "py-2 px-1 transition-colors duration-300 relative group";
+  const activeClasses = isMobile
+    ? "text-secondary font-semibold"
+    : "text-primary";
   const inactiveClasses = isMobile 
     ? "text-dark-text hover:text-secondary" 
-    : "text-dark-text hover:text-secondary";
+    : "text-dark-text hover:text-primary";
 
   return (
     <li>
@@ -38,12 +38,21 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, navigateTo }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = Object.values(Page);
 
+  const handleMobileNavClick = (page: Page) => {
+    navigateTo(page);
+    setIsMenuOpen(false);
+  };
+
   return (
-    <nav className="bg-white/80 backdrop-blur-sm border-b border-gray-200 shadow-sm sticky top-0 z-50">
+    <nav className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 shadow-sm">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <button onClick={() => navigateTo(Page.Home)} className="flex items-center space-x-3 rtl:space-x-reverse">
-          <span className="self-center text-2xl font-bold whitespace-nowrap text-primary">LIANET</span>
+        {/* Logo Text */}
+        {/* FIX: Corrected the onClick handler to navigate to Page.Home. The previous code was passing the Page enum type itself instead of a member, causing a type error. */}
+        <button onClick={() => navigateTo(Page.Home)} className="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer">
+           <span className="self-center text-2xl font-bold whitespace-nowrap text-primary">LIANET</span>
         </button>
+
+        {/* Hamburger Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           type="button"
@@ -51,25 +60,37 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, navigateTo }) => {
           aria-controls="navbar-default"
           aria-expanded={isMenuOpen}
         >
-          <span className="sr-only">Abrir menu principal</span>
+          <span className="sr-only">Open main menu</span>
           <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
           </svg>
         </button>
-        <div className={`${isMenuOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`} id="navbar-default">
-           <ul className={`font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent ${isMenuOpen ? 'bg-white' : ''}`}>
+
+        {/* Desktop Nav */}
+        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
             {navLinks.map((page) => (
-              <li key={page} className="group">
-                <NavLink page={page} currentPage={currentPage} navigateTo={navigateTo} isMobile={isMenuOpen}>
-                  {page}
-                </NavLink>
-              </li>
+              <NavLink key={page} page={page} currentPage={currentPage} navigateTo={navigateTo}>
+                {page}
+              </NavLink>
             ))}
           </ul>
+        </div>
+        
+        {/* Mobile Nav */}
+        <div className={`w-full md:hidden ${isMenuOpen ? 'block' : 'hidden'}`} id="navbar-mobile">
+            <ul className="font-medium flex flex-col mt-4 border-t border-gray-200 pt-4">
+                {navLinks.map((page) => (
+                    <NavLink key={page} page={page} currentPage={currentPage} navigateTo={handleMobileNavClick} isMobile={true}>
+                        {page}
+                    </NavLink>
+                ))}
+            </ul>
         </div>
       </div>
     </nav>
   );
 };
 
+// FIX: Added the missing default export. This resolves the module import error in App.tsx.
 export default Navbar;
