@@ -13,10 +13,10 @@ const NavLink: React.FC<{ page: Page; currentPage: Page; navigateTo: (page: Page
     : "py-2 px-1 transition-colors duration-300 relative group";
   const activeClasses = isMobile
     ? "text-secondary font-semibold"
-    : "text-primary";
+    : "text-secondary";
   const inactiveClasses = isMobile 
-    ? "text-dark-text hover:text-secondary" 
-    : "text-dark-text hover:text-primary";
+    ? "text-gray-300 hover:text-secondary" 
+    : "text-gray-300 hover:text-white";
 
   return (
     <li>
@@ -44,19 +44,19 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, navigateTo }) => {
   };
 
   return (
-    <nav className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 shadow-sm">
+    <nav className="bg-primary/90 backdrop-blur-md sticky top-0 z-50 border-b border-white/10 shadow-sm">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo Text */}
         {/* FIX: Corrected the onClick handler to navigate to Page.Home. The previous code was passing the Page enum type itself instead of a member, causing a type error. */}
         <button onClick={() => navigateTo(Page.Home)} className="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer">
-           <span className="self-center text-2xl font-bold whitespace-nowrap text-primary">LIANET</span>
+           <span className="self-center text-2xl font-bold whitespace-nowrap text-white">LIANET</span>
         </button>
 
         {/* Hamburger Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-300 rounded-lg md:hidden hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-gray-600"
           aria-controls="navbar-default"
           aria-expanded={isMenuOpen}
         >
@@ -68,7 +68,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, navigateTo }) => {
 
         {/* Desktop Nav */}
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-transparent md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
             {navLinks.map((page) => (
               <NavLink key={page} page={page} currentPage={currentPage} navigateTo={navigateTo}>
                 {page}
@@ -79,7 +79,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, navigateTo }) => {
         
         {/* Mobile Nav */}
         <div className={`w-full md:hidden ${isMenuOpen ? 'block' : 'hidden'}`} id="navbar-mobile">
-            <ul className="font-medium flex flex-col mt-4 border-t border-gray-200 pt-4">
+            <ul className="font-medium flex flex-col mt-4 border-t border-gray-700 pt-4">
                 {navLinks.map((page) => (
                     <NavLink key={page} page={page} currentPage={currentPage} navigateTo={handleMobileNavClick} isMobile={true}>
                         {page}

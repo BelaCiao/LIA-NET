@@ -1,7 +1,7 @@
 export enum Page {
   Home = 'Início',
-  Services = 'Serviços',
-  FieldServiceNOC = 'Field Service & NOC',
+  RemoteServices = 'Serviços Remotos',
+  FieldService = 'Serviços Presenciais',
   About = 'Quem Somos',
   Contact = 'Contato',
 }
