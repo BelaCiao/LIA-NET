@@ -25,7 +25,7 @@ const App: React.FC = () => {
       case Page.FieldServiceNOC:
         return <FieldServiceNocPage navigateTo={navigateTo} />;
       case Page.About:
-        return <AboutPage />;
+        return <AboutPage navigateTo={navigateTo} />;
       case Page.Contact:
         return <ContactPage />;
       default:

@@ -6,13 +6,14 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
+
   return (
     <footer className="bg-white text-dark-text border-t border-gray-200">
       <div className="max-w-screen-xl mx-auto p-8 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
-          <a onClick={() => navigateTo(Page.Home)} className="flex items-center mb-6 sm:mb-0 space-x-3 rtl:space-x-reverse cursor-pointer">
-            <span className="self-center text-3xl font-bold whitespace-nowrap text-primary tracking-tighter">LIANET</span>
-          </a>
+          <button onClick={() => navigateTo(Page.Home)} className="flex items-center mb-6 sm:mb-0 space-x-3 rtl:space-x-reverse cursor-pointer">
+            <span className="text-2xl font-bold whitespace-nowrap text-primary">LIANET</span>
+          </button>
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium sm:mb-0">
             <li>
               <button onClick={() => navigateTo(Page.About)} className="hover:text-secondary me-4 md:me-6">Quem Somos</button>

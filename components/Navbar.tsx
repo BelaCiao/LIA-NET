@@ -42,7 +42,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, navigateTo }) => {
     <nav className="bg-white/80 backdrop-blur-sm border-b border-gray-200 shadow-sm sticky top-0 z-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <button onClick={() => navigateTo(Page.Home)} className="flex items-center space-x-3 rtl:space-x-reverse">
-          <span className="self-center text-3xl font-bold whitespace-nowrap text-primary tracking-tighter">LIANET</span>
+          <span className="self-center text-2xl font-bold whitespace-nowrap text-primary">LIANET</span>
         </button>
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}

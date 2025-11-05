@@ -42,7 +42,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
             Tecnologia que Funciona para Você.
           </h1>
           <p className="text-lg text-gray-200 mb-8 max-w-3xl mx-auto">
-            Soluções completas em TI e Redes em Rio Grande, RS. Do seu computador pessoal à infraestrutura de rede da sua empresa, estamos aqui para ajudar.
+            Soluções completas em TI e Redes. Do seu computador pessoal à infraestrutura de rede da sua empresa, estamos aqui para ajudar.
           </p>
           <div className="flex flex-col items-center gap-5">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -104,6 +104,19 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
                 title="Especialistas em UniFi e Fibra Óptica"
               />
           </div>
+        </div>
+      </section>
+
+      {/* Partner Network CTA Section */}
+      <section className="bg-primary text-white">
+        <div className="max-w-screen-xl mx-auto px-4 py-16 sm:py-20 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">É Técnico de TI e Busca uma Renda Extra?</h2>
+          <p className="text-lg text-gray-200 mb-8 max-w-3xl mx-auto">
+            Estamos sempre expandindo nossa rede de parceiros de campo para atender demandas em diversas localidades. Se você é um profissional qualificado e busca oportunidades flexíveis, queremos conhecer você.
+          </p>
+          <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary" onClick={() => navigateTo(Page.Contact)}>
+            Quero Ser um Parceiro
+          </Button>
         </div>
       </section>
 
