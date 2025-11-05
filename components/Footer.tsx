@@ -6,12 +6,14 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
+  const logoDataUri = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARAAAABABAMAAABn2A+2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURQAAAP///6XZn90AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIBSURBVCHd7ZtNb6JAEIb/EBL2XmMv2Gvttd5CQB4IAcFCQsK+hYAgwAv2PnvLChg8yWyaQZnZzUv6vj/z29nNGFNKqZCQ+Q4BEyLT0DkLgiHpjAVBkPSGgiBIemsjQoCEYc5v2gJIEB55DkDC8ChzAgmDA68jQIywykOAGGHlxwExwgr7AxFhhb2jA2KElb4PjBFW2js5IUZY6RnghBX2jgbECCvtA8QIy2YMxAhrZhxEjLDaM4AYYd0ZgBhhZzMAYoSdsQGIEbY5B2KEnbYBjBGOcwYgRjjNBkCMcDgDECMcwg5AjHAYMIAY4RgfAjHCGTMEIpwxgxBCOFsGIIQzrgZghEtuAcQIlyYDxAgnzQCECCfZAggRjloGECIcdgYgRJg9ASBCmD0BIkKYLQcgRJgNAyBEmM0GIEKYjQcgRJjZDBAmzGwdIEyY7QogTJjtCiBMmM0MIEyY4QogTJjhDEDEmOE2IEKY4RYgQpjjB0CEMd4GIEKY4wdAjDHeB0CMMeMOQIzxE3YAY8TNG0CM8RPmAGPEjRvAGPEjZoAx4kYfgDFixwEgxpjBAiDGmEMCIMaYxQIgxpiFAQgx5qAEIMaYjQYQYsyGAxBjzGYCCDFm4wCEGHMWEGJM+gcQY0z8FxBjTPwPEGNM/AsQY0z8ExBjTPwTEGNMfAsQY0z8CxBjTPwPEGNM/AsQY0z8ExBjTPwTEGNMfAsQY0z8CxBjTPwPEGNM/AsQY0z8ExBjTPwTEGNM/AsQY0z8B39qJd0Yp3dPAAAAAElFTkSuQmCC";
+
   return (
     <footer className="bg-primary text-gray-300 border-t border-white/10">
       <div className="max-w-screen-xl mx-auto p-8 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <button onClick={() => navigateTo(Page.Home)} className="flex items-center mb-6 sm:mb-0 space-x-3 rtl:space-x-reverse cursor-pointer">
-             <span className="self-center text-2xl font-bold whitespace-nowrap text-white">LIANET</span>
+             <img src={logoDataUri} className="h-10 w-auto" alt="LIANET Soluções Logo" />
           </button>
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium sm:mb-0">
             <li>

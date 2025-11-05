@@ -29,7 +29,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ navigateTo }) => {
                 </div>
                 <div className="md:col-span-3 text-lg text-gray-300 leading-relaxed space-y-4">
                    <h2 className="text-3xl font-bold text-white mb-4">Nossa História</h2>
-                   <p>A LIANET Soluções nasceu de anos de experiência prática no coração da tecnologia. Minha jornada começou em campo, executando projetos complexos de field service para gigantes como a Avato/Brasiltecpar, onde aprendi na prática a importância da disciplina, da agilidade e da execução perfeita.</p>
+                   <p>A LIANET Soluções nasceu de anos de experiência prática no coração da tecnologia. Minha jornada começou em campo, executando projetos complexos de field service para os grandes players de redes e TI do mercado. Atuando em POPs, realizando testes com OTDR, trocas e configurações de switches, aprendi na prática a importância da disciplina, da agilidade e da execução perfeita.</p>
                    <p>Hoje, como empreendedor, trago todo esse conhecimento para a Região Sul. Meu objetivo é simples: oferecer um serviço de TI e Redes de altíssimo nível, que antes era acessível apenas para grandes corporações, para os provedores, empresas e moradores da nossa região.</p>
                    <p>A LIANET não é apenas uma empresa, é o meu compromisso pessoal com a solução do seu problema.</p>
                 </div>
