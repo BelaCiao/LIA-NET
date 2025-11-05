@@ -25,13 +25,13 @@ const ContactPage: React.FC = () => {
     };
 
     return (
-        <div className="bg-primary text-gray-300">
-            <header className="bg-primary py-16 text-center">
+        <div className="bg-transparent text-gray-300">
+            <header className="bg-transparent py-16 text-center" data-animate-on-scroll>
                 <h1 className="text-4xl md:text-5xl font-bold text-white">Vamos Conversar<span className="text-secondary">?</span></h1>
                 <p className="mt-4 text-lg text-gray-300 max-w-3xl mx-auto">Entre em contato para tirar dúvidas ou solicite um orçamento detalhado para o seu projeto.</p>
             </header>
 
-            <div className="py-16 sm:py-24">
+            <div className="py-16 sm:py-24" data-animate-on-scroll>
                  <div className="max-w-screen-xl mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-16 items-start">
                          {/* Contact Info */}
@@ -64,19 +64,19 @@ const ContactPage: React.FC = () => {
                             </ContactInfoItem>
                         </div>
                         {/* Contact Form */}
-                        <div className="bg-primary-card p-8 rounded-lg shadow-xl border border-white/10">
+                        <div className="bg-primary-card/80 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-white/10">
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Nome</label>
-                                    <input type="text" id="name" name="name" required className="w-full px-4 py-2 border border-gray-600 bg-primary text-white rounded-md focus:ring-secondary focus:border-secondary"/>
+                                    <input type="text" id="name" name="name" required className="w-full px-4 py-2 border border-gray-600 bg-primary/50 text-white rounded-md focus:ring-secondary focus:border-secondary focus:shadow-[0_0_10px_theme(colors.secondary)]"/>
                                 </div>
                                 <div>
                                     <label htmlFor="contact_info" className="block text-sm font-medium text-gray-300 mb-1">E-mail ou Telefone</label>
-                                    <input type="text" id="contact_info" name="contact_info" required className="w-full px-4 py-2 border border-gray-600 bg-primary text-white rounded-md focus:ring-secondary focus:border-secondary"/>
+                                    <input type="text" id="contact_info" name="contact_info" required className="w-full px-4 py-2 border border-gray-600 bg-primary/50 text-white rounded-md focus:ring-secondary focus:border-secondary focus:shadow-[0_0_10px_theme(colors.secondary)]"/>
                                 </div>
                                 <div>
                                     <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">Qual serviço você precisa?</label>
-                                    <select id="subject" name="subject" required className="w-full px-4 py-2 border border-gray-600 rounded-md focus:ring-secondary focus:border-secondary bg-primary text-white">
+                                    <select id="subject" name="subject" required className="w-full px-4 py-2 border border-gray-600 rounded-md focus:ring-secondary focus:border-secondary bg-primary/50 text-white">
                                         <option>Suporte Remoto</option>
                                         <option>Visita Técnica</option>
                                         <option>Infraestrutura de Rede</option>
@@ -85,7 +85,7 @@ const ContactPage: React.FC = () => {
                                 </div>
                                 <div>
                                     <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Descreva sua necessidade</label>
-                                    <textarea id="message" name="message" rows={4} required className="w-full px-4 py-2 border border-gray-600 bg-primary text-white rounded-md focus:ring-secondary focus:border-secondary"></textarea>
+                                    <textarea id="message" name="message" rows={4} required className="w-full px-4 py-2 border border-gray-600 bg-primary/50 text-white rounded-md focus:ring-secondary focus:border-secondary focus:shadow-[0_0_10px_theme(colors.secondary)]"></textarea>
                                 </div>
                                 <div>
                                     <Button type="submit" variant="primary" className="w-full">Enviar Solicitação</Button>

@@ -7,7 +7,7 @@ interface FieldServicePageProps {
 }
 
 const ServiceListItem: React.FC<{ title: string, text: string }> = ({ title, text }) => (
-    <div className="bg-primary-card p-6 rounded-lg border border-white/10 shadow-sm flex flex-col">
+    <div className="bg-primary-card/80 backdrop-blur-sm p-6 rounded-lg border border-white/10 shadow-sm flex flex-col h-full">
         <h3 className="font-bold text-white text-xl mb-2">{title}</h3>
         <p className="text-gray-300 flex-grow">{text}</p>
     </div>
@@ -15,14 +15,14 @@ const ServiceListItem: React.FC<{ title: string, text: string }> = ({ title, tex
 
 const FieldServicePage: React.FC<FieldServicePageProps> = ({ navigateTo }) => {
   return (
-    <div className="bg-primary text-gray-300">
-      <header className="bg-primary text-white py-16 text-center">
+    <div className="bg-transparent text-gray-300">
+      <header className="bg-transparent text-white py-16 text-center" data-animate-on-scroll>
         <h1 className="text-4xl md:text-5xl font-bold">Seu Técnico de Campo em Rio Grande e Pelotas<span className="text-secondary">.</span></h1>
         <p className="mt-4 text-lg text-gray-200 max-w-3xl mx-auto">Vamos até você para resolver problemas complexos de hardware e infraestrutura.</p>
       </header>
       
       <main>
-        <section className="py-16 sm:py-24">
+        <section className="py-16 sm:py-24" data-animate-on-scroll>
           <div className="max-w-screen-xl mx-auto px-4">
              <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-white inline-block">Nossos Serviços Presenciais</h2>
@@ -48,19 +48,19 @@ const FieldServicePage: React.FC<FieldServicePageProps> = ({ navigateTo }) => {
           </div>
         </section>
 
-        <section className="py-16 sm:py-24 bg-primary-card">
+        <section className="py-16 sm:py-24 bg-primary-card/80 backdrop-blur-sm" data-animate-on-scroll>
           <div className="max-w-screen-lg mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-white mb-8">Projetos em Destaque</h2>
             {/* Placeholder for photo gallery */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div className="bg-primary aspect-video rounded-lg flex items-center justify-center border border-white/10"><span className="text-gray-400">Rack Organizado</span></div>
-                <div className="bg-primary aspect-video rounded-lg flex items-center justify-center border border-white/10"><span className="text-gray-400">PC Gamer Montado</span></div>
-                <div className="bg-primary aspect-video rounded-lg flex items-center justify-center border border-white/10"><span className="text-gray-400">UniFi AP Instalado</span></div>
+                <div className="bg-primary/50 aspect-video rounded-lg flex items-center justify-center border border-white/10"><span className="text-gray-400">Rack Organizado</span></div>
+                <div className="bg-primary/50 aspect-video rounded-lg flex items-center justify-center border border-white/10"><span className="text-gray-400">PC Gamer Montado</span></div>
+                <div className="bg-primary/50 aspect-video rounded-lg flex items-center justify-center border border-white/10"><span className="text-gray-400">UniFi AP Instalado</span></div>
             </div>
           </div>
         </section>
 
-        <section className="bg-primary text-white">
+        <section className="bg-transparent text-white" data-animate-on-scroll>
              <div className="max-w-screen-xl mx-auto px-4 py-16 text-center">
                 <h2 className="text-3xl font-bold mb-4">Precisa de uma visita técnica?</h2>
                 <Button variant="primary" onClick={() => navigateTo(Page.Contact)}>Solicite um Orçamento</Button>

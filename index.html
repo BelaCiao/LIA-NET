@@ -8,15 +8,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      [data-animate-on-scroll] {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      [data-animate-on-scroll].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              'primary': '#0A2540',      // Azul Escuro
-              'primary-card': '#1A3655', // Azul Escuro para cards
-              'secondary': '#3ECF8E',    // Verde Vibrante
-              'light-gray': '#F6F9FC',   // Fundo de seção
+              'primary': '#051424',      // Azul Mais Escuro
+              'primary-card': '#0A1C32', // Card Azul Escuro
+              'secondary': '#00FF87',    // Verde Neon Brilhante
+              'light-gray': '#F6F9FC',
               'dark-text': '#333333',
               'white': '#ffffff',
             },
@@ -32,7 +43,8 @@
   "imports": {
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^0.14.2"
   }
 }
 </script>

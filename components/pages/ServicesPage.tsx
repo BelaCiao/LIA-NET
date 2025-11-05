@@ -26,7 +26,7 @@ const ServiceItem: React.FC<{ title: string; children: React.ReactNode; }> = ({ 
 
 const HowItWorksStep: React.FC<{ number: number; title: string; description: string; }> = ({ number, title, description }) => (
     <div className="relative flex flex-col items-center">
-        <div className="h-12 w-12 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xl mb-3 z-10">
+        <div className="h-12 w-12 rounded-full bg-secondary text-primary font-bold text-xl flex items-center justify-center mb-3 z-10 shadow-[0_0_15px_rgba(0,255,135,0.4)]">
             {number}
         </div>
         <h4 className="font-bold text-white text-lg text-center mb-1">{title}</h4>
@@ -37,15 +37,15 @@ const HowItWorksStep: React.FC<{ number: number; title: string; description: str
 
 const RemoteServicesPage: React.FC = () => {
   return (
-    <div className="bg-primary text-gray-300">
-        <header className="bg-primary py-16">
+    <div className="bg-transparent text-gray-300">
+        <header className="bg-transparent py-16" data-animate-on-scroll>
             <div className="max-w-screen-xl mx-auto px-4 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold text-white">Nossas Soluções Remotas<span className="text-secondary">:</span></h1>
                  <p className="mt-4 text-lg text-gray-300 max-w-3xl mx-auto">Agilidade e Expertise para sua Operação, com atendimento focado das 8h às 14h para garantir a estabilidade do seu ambiente de TI.</p>
             </div>
         </header>
 
-        <main className="max-w-screen-xl mx-auto px-4 py-16 sm:py-24">
+        <main className="max-w-screen-xl mx-auto px-4 py-16 sm:py-24" data-animate-on-scroll>
              <div className="max-w-4xl mx-auto">
                 <ServiceItem title="Analista de NOC para Provedores (N1/N2)">
                     <p>Oferecemos monitoramento proativo, configuração de ativos (OLTs, Switches, Roteadores como MikroTik, FiberHome, Ubiquiti), análise de falhas e suporte técnico especializado para a equipe do seu provedor.</p>
@@ -62,7 +62,7 @@ const RemoteServicesPage: React.FC = () => {
             </div>
         </main>
         
-        <section className="bg-primary-card py-16 sm:py-24">
+        <section className="bg-primary-card/80 backdrop-blur-sm py-16 sm:py-24" data-animate-on-scroll>
             <div className="max-w-screen-xl mx-auto px-4">
                  <div className="text-center mb-16">
                     <h2 className="text-3xl font-bold text-white inline-block">Como Funciona?</h2>
@@ -79,13 +79,13 @@ const RemoteServicesPage: React.FC = () => {
             </div>
         </section>
         
-         <section className="bg-primary text-white">
+         <section className="bg-transparent text-white" data-animate-on-scroll>
             <div className="max-w-screen-xl mx-auto px-4 py-16 text-center">
                 <h2 className="text-3xl font-bold mb-2">Precisa de um especialista remoto agora?</h2>
                  <a href="https://wa.me/5553999335369" target="_blank" rel="noopener noreferrer" className="inline-block mt-4">
                    <Button variant="primary">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99 0-3.903-.52-5.687-1.475L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 4.315 1.731 6.086l.001.004l-1.03 3.747l3.826-1.011z"/></svg>
-                       <span>Fale Conosco no WhatsApp</span>
+                       <span className="font-bold">Fale Conosco no WhatsApp</span>
                     </Button>
                 </a>
             </div>

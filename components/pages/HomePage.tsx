@@ -7,7 +7,7 @@ interface HomePageProps {
 }
 
 const QuickDirectionCard: React.FC<{ icon: React.ReactNode; title: string; description: string; buttonText: string; onClick: () => void; }> = ({ icon, title, description, buttonText, onClick }) => (
-    <div className="bg-primary-card p-8 rounded-lg border border-white/10 flex flex-col items-center text-center transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-2 group hover:shadow-secondary/10">
+    <div className="bg-primary-card/80 backdrop-blur-sm p-8 rounded-lg border border-white/10 flex flex-col items-center text-center transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-2 group hover:border-secondary/50">
         <div className="text-secondary mb-6">{icon}</div>
         <h3 className="text-2xl font-bold text-white mb-4">{title}</h3>
         <p className="text-gray-300 flex-grow mb-6 max-w-sm">{description}</p>
@@ -37,10 +37,11 @@ const Feature: React.FC<{ icon: React.ReactNode; title: string; description: str
 
 const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
   return (
-    <div className="bg-primary text-gray-300">
+    <div className="bg-transparent text-gray-300">
       {/* Hero Section */}
       <section 
-        className="min-h-[70vh] flex items-center justify-center text-center bg-primary text-white" 
+        className="min-h-[70vh] flex items-center justify-center text-center text-white" 
+        data-animate-on-scroll
       >
         <div className="max-w-screen-lg mx-auto px-4 py-20">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
@@ -53,7 +54,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
       </section>
 
       {/* Quick Direction Section */}
-       <section className="py-16 sm:py-24 bg-primary -mt-20 relative z-10">
+       <section className="py-16 sm:py-24 bg-transparent -mt-20 relative z-10" data-animate-on-scroll>
         <div className="max-w-screen-xl mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-10">
                 <QuickDirectionCard 
@@ -75,7 +76,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
       </section>
 
       {/* "Para Quem Trabalhamos" Section */}
-      <section className="py-16 sm:py-24 bg-primary">
+      <section className="py-16 sm:py-24 bg-transparent" data-animate-on-scroll>
         <div className="max-w-screen-xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-16">Para Quem Trabalhamos</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -99,7 +100,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
       </section>
 
        {/* Why Choose Us Section */}
-      <section className="py-16 sm:py-24 bg-primary">
+      <section className="py-16 sm:py-24 bg-transparent" data-animate-on-scroll>
         <div className="max-w-screen-lg mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-16">Por que escolher a LIANET?</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -128,7 +129,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-primary">
+      <section className="bg-transparent" data-animate-on-scroll>
         <div className="max-w-screen-xl mx-auto px-4 py-16 sm:py-20 text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Pronto para resolver seu problema de tecnologia?</h2>
           <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary" onClick={() => navigateTo(Page.Contact)}>Fale com um Especialista</Button>

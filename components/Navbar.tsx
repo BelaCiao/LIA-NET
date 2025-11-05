@@ -13,7 +13,7 @@ const NavLink: React.FC<{ page: Page; currentPage: Page; navigateTo: (page: Page
     : "py-2 px-1 transition-colors duration-300 relative group";
   const activeClasses = isMobile
     ? "text-secondary font-semibold"
-    : "text-secondary";
+    : "text-secondary [text-shadow:0_0_8px_theme(colors.secondary)]";
   const inactiveClasses = isMobile 
     ? "text-gray-300 hover:text-secondary" 
     : "text-gray-300 hover:text-white";
@@ -27,7 +27,7 @@ const NavLink: React.FC<{ page: Page; currentPage: Page; navigateTo: (page: Page
       >
         {children}
         {!isMobile && (
-            <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-secondary transform transition-transform duration-300 ${isActive ? 'scale-x-100' : 'scale-x-0'} group-hover:scale-x-100`}></span>
+            <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-secondary transition-transform duration-300 ${isActive ? 'scale-x-100' : 'scale-x-0'} group-hover:scale-x-100`}></span>
         )}
       </button>
     </li>
@@ -44,10 +44,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, navigateTo }) => {
   };
 
   return (
-    <nav className="bg-primary/90 backdrop-blur-md sticky top-0 z-50 border-b border-white/10 shadow-sm">
+    <nav className="bg-primary/80 backdrop-blur-md sticky top-0 z-40 border-b border-white/10 shadow-sm">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo Text */}
-        {/* FIX: Corrected the onClick handler to navigate to Page.Home. The previous code was passing the Page enum type itself instead of a member, causing a type error. */}
         <button onClick={() => navigateTo(Page.Home)} className="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer">
            <span className="self-center text-2xl font-bold whitespace-nowrap text-white">LIANET</span>
         </button>
@@ -92,5 +91,4 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, navigateTo }) => {
   );
 };
 
-// FIX: Added the missing default export. This resolves the module import error in App.tsx.
 export default Navbar;
