@@ -40,16 +40,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, navigateTo }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = Object.values(Page);
   const logoDataUri = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARAAAABABAMAAABn2A+2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURQAAAP///6XZn90AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIBSURBVCHd7ZtNb6JAEIb/EBL2XmMv2Gvttd5CQB4IAcFCQsK+hYAgwAv2PnvLChg8yWyaQZnZzUv6vj/z29nNGFNKqZCQ+Q4BEyLT0DkLgiHpjAVBkPSGgiBIemsjQoCEYc5v2gJIEB55DkDC8ChzAgmDA68jQIywykOAGGHlxwExwgr7AxFhhb2jA2KElb4PjBFW2js5IUZY6RnghBX2jgbECCvtA8QIy2YMxAhrZhxEjLDaM4AYYd0ZgBhhZzMAYoSdsQGIEbY5B2KEnbYBjBGOcwYgRjjNBkCMcDgDECMcwg5AjHAYMIAY4RgfAjHCGTMEIpwxgxBCOFsGIIQzrgZghEtuAcQIlyYDxAgnzQCECCfZAggRjloGECIcdgYgRJg9ASBCmD0BIkKYLQcgRJgNAyBEmM0GIEKYjQcgRJjZDBAmzGwdIEyY7QogTJjtCiBMmM0MIEyY4QogTJjhDEDEmOE2IEKY4RYgQpjjB0CEMd4GIEKY4wdAjDHeB0CMMeMOQIzxE3YAY8TNG0CM8RPmAGPEjRvAGPEjZoAx4kYfgDFixwEgxpjBAiDGmEMCIMaYxQIgxpiFAQgx5qAEIMaYjQYQYsyGAxBjzGYCCDFm4wCEGHMWEGJM+gcQY0z8FxBjTPwPEGNM/AsQY0z8ExBjTPwTEGNMfAsQY0z8CxBjTPwPEGNM/AsQY0z8ExBjTPwTEGNMfAsQY0z8CxBjTPwPEGNM/AsQY0z8ExBjTPwTEGNM/AsQY0z8B39qJd0Yp3dPAAAAAElFTkSuQmCC";
-  
+
+// FIX: Added JSX return to Navbar component to render the navigation bar
   return (
-    <nav className="bg-primary/80 backdrop-blur-md sticky top-0 z-40 border-b border-white/10">
+    <nav className="bg-primary/80 backdrop-blur-sm border-b border-white/10 sticky top-0 z-40">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        {/* Logo */}
         <button onClick={() => navigateTo(Page.Home)} className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src={logoDataUri} className="h-10 w-auto" alt="LIANET Soluções Logo" />
+          <img src={logoDataUri} className="h-10" alt="LIANET Soluções Logo" />
         </button>
-        
-        {/* Hamburger Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           type="button"
@@ -62,37 +60,27 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, navigateTo }) => {
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
           </svg>
         </button>
-
-        {/* Desktop Menu */}
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0">
+        <div className={`${isMenuOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`} id="navbar-default">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-primary-card/90 md:bg-transparent md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
             {navLinks.map((page) => (
-              <NavLink key={page} page={page} currentPage={currentPage} navigateTo={navigateTo}>
+              <NavLink 
+                key={page} 
+                page={page} 
+                currentPage={currentPage} 
+                navigateTo={(p: Page) => { 
+                  navigateTo(p); 
+                  setIsMenuOpen(false); 
+                }}
+              >
                 {page}
               </NavLink>
             ))}
           </ul>
         </div>
       </div>
-      
-      {/* Mobile Menu (Collapsible) */}
-      <div className={`w-full md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-        <ul className="flex flex-col p-4 pt-0">
-            {navLinks.map((page) => (
-                <NavLink 
-                    key={`mobile-${page}`} 
-                    page={page} 
-                    currentPage={currentPage} 
-                    navigateTo={(p) => { navigateTo(p); setIsMenuOpen(false); }} 
-                    isMobile
-                >
-                    {page}
-                </NavLink>
-            ))}
-        </ul>
-      </div>
     </nav>
   );
 };
 
+// FIX: Added default export to Navbar component
 export default Navbar;
